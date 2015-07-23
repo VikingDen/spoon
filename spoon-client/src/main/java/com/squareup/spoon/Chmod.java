@@ -27,7 +27,8 @@ abstract class Chmod {
   protected abstract void plusRWX(File file);
 
   private static class Java5Chmod extends Chmod {
-    @Override protected void plusR(File file) {
+    @Override
+    protected void plusR(File file) {
       try {
         Runtime.getRuntime().exec(new String[] {"chmod", "644", file.getAbsolutePath()});
       } catch (IOException e) {
@@ -35,7 +36,8 @@ abstract class Chmod {
       }
     }
 
-    @Override protected void plusRWX(File file) {
+    @Override
+    protected void plusRWX(File file) {
       try {
         Runtime.getRuntime().exec(new String[] {"chmod", "777", file.getAbsolutePath()});
       } catch (IOException e) {
@@ -45,11 +47,13 @@ abstract class Chmod {
   }
 
   private static class Java6Chmod extends Chmod {
-    @Override protected void plusR(File file) {
+    @Override
+    protected void plusR(File file) {
       file.setReadable(true, false);
     }
 
-    @Override protected void plusRWX(File file) {
+    @Override
+    protected void plusRWX(File file) {
       file.setReadable(true, false);
       file.setWritable(true, false);
       file.setExecutable(true, false);

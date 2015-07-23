@@ -60,6 +60,8 @@ public final class Spoon {
    *
    * @param activity Activity with which to capture a screenshot.
    * @param tag Unique tag to further identify the screenshot. Must match [a-zA-Z0-9_-]+.
+   * @param testClassName the test class name
+   * @param testMethodName the test method name
    * @return the image file that was created
    */
   public static File screenshot(Activity activity, String tag, String testClassName,
